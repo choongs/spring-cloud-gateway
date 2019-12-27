@@ -40,7 +40,12 @@ java8에서 제공하는 function Predicate interface. 사용하는 class는 `Se
 
 
 ### 동작원리
-#### Client - Gateway Handler Mappling - Filter - Filter - Procy Filter - Proxy Service
+
+![Alt gateway-flow](./image/spring_cloud_gateway_diagram.png)
+
+Spring cloud gateway로 요청이 들어오고, 해당 요청이 Gateway Web Mapping에서 route에 가능한 매칭이 있으면, Gateway Web Handler로 보내진다.
+Gateway Web Handler는 요청에 대한 filter chain을 실행합니다. 그림을 보면 filter에 점선으로 표시된부분은 request와 response로 구분자 역활을 합니다.
+즉, 당연히 요청이 오는경우와 요청에 대한 응답이 전달될때 filter chain이 실행됩니다.
 
 Header Forwarded에 gateway ip 추가되어짐 response시 다시 돌아옴.
 
