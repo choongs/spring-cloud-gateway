@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    gateway:
+      enabled: true
+  profiles:
+    active: local
+
+server:
+  port: 7070

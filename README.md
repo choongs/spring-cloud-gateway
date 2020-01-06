@@ -41,7 +41,7 @@ java8에서 제공하는 function Predicate interface. 사용하는 class는 `Se
 
 ### 동작원리
 
-![Alt gateway-flow](./image/spring_cloud_gateway_diagram.png)
+![Alt gateway-flow](./image/spring_cloud_gateway_diagram.PNG)
 
 Spring cloud gateway로 요청이 들어오고, 해당 요청이 Gateway Web Mapping에서 route에 가능한 매칭이 있으면, Gateway Web Handler로 보내진다.
 Gateway Web Handler는 요청에 대한 filter chain을 실행합니다. 그림을 보면 filter에 점선으로 표시된부분은 request와 response로 구분자 역활을 합니다.
@@ -113,7 +113,8 @@ Before Route Predicate Factory는 datetime이라는 하나의 parameter만 가�
 ### Between Route Predicate Factory
 Between Route Predicate Factory는 두개의 datetime parameter를 가지고 있으며, datetime1과 datetime2 사이에 일어난 요청과 매칭되어집니다.
 
-``` java
+```java
+
 .route(
 	r -> r.path("/between-route").and()
 		.between(
@@ -153,6 +154,20 @@ Path Route Predicate Factory는 필수 parameter인 pathMatcher list와 옵션 ~
 
 ### Query Route Predicate Factory
 Query Route Predicate Factory는 parameter name과 정규식을 가지지만 정규식은 옵션값입니다. 조건부는 query param에 parameter가 존재하며 매칭되어집니다.
+
+
+### The RemoteAddr Route Predicate Factory
+The RemoteAddr route predicate factory takes a list (min size 1) of CIDR-notation (IPv4 or IPv6) strings, such as 192.168.0.1/16 
+(where 192.168.0.1 is an IP address and 16 is a subnet mask). The following example configures a RemoteAddr route predicate
+```java
+
+```
+
+### The Weight Route Predicate Factory
+Weight Route Predicate Factory는 그룹명과 가중치 두개의 파라메터를 가지고있습니다. 가중치는 동일한그룹명으로 계산되어집니다.
+```java
+
+```
 
 ## GatewayFilter Factories
 라우트 필터는 들어오고 나가는 HTTP 요청과 응답을 수정할 수 있게 해줍니다. spring cloud gateway 다양한 GatewayFilter를 포함하고 있습니다.
