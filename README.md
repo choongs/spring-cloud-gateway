@@ -159,15 +159,10 @@ Query Route Predicate Factory는 parameter name과 정규식을 가지지만 정
 ### The RemoteAddr Route Predicate Factory
 The RemoteAddr route predicate factory takes a list (min size 1) of CIDR-notation (IPv4 or IPv6) strings, such as 192.168.0.1/16 
 (where 192.168.0.1 is an IP address and 16 is a subnet mask). The following example configures a RemoteAddr route predicate
-```java
-
-```
 
 ### The Weight Route Predicate Factory
 Weight Route Predicate Factory는 그룹명과 가중치 두개의 파라메터를 가지고있습니다. 가중치는 동일한그룹명으로 계산되어집니다.
-```java
 
-```
 
 ## GatewayFilter Factories
 라우트 필터는 들어오고 나가는 HTTP 요청과 응답을 수정할 수 있게 해줍니다. spring cloud gateway 다양한 GatewayFilter를 포함하고 있습니다.
